@@ -2,13 +2,11 @@
 
 import * as React from "react"
 import { CommandIcon, Minus, Plus } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -38,12 +36,6 @@ import {
 } from "@/components/ui/command"
 
 export function DrawerMenu() {
-  const [goal, setGoal] = React.useState(350)
-
-  function onClick(adjustment: number) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
-  }
-
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -51,9 +43,9 @@ export function DrawerMenu() {
           <CommandIcon />
         </Toggle>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="pb-5">
         <div className="mx-auto w-full max-w-sm">
-          <DrawerHeader>
+          <DrawerHeader className="pt-5">
             <div className="flex space-x-4">
               <Avatar>
                 <AvatarImage />
@@ -70,21 +62,35 @@ export function DrawerMenu() {
             <Command>
               <CommandList>
                 <CommandGroup heading="Menu">
+                  <CommandItem path="/">
+                    <Smile className="mr-2 h-4 w-4" />
+                    <DrawerClose asChild>
+                      <span>Profile</span>
+                    </DrawerClose>
+                  </CommandItem>
                   <CommandItem path="/writing">
                     <PencilLine className="mr-2 h-4 w-4" />
-                    <span>Writing</span>
+                    <DrawerClose asChild>
+                      <span>Writing</span>
+                    </DrawerClose>
                   </CommandItem>
                   <CommandItem path="/reading">
                     <BookMarked className="mr-2 h-4 w-4" />
-                    <span>Reading</span>
+                    <DrawerClose asChild>
+                      <span>Reading</span>
+                    </DrawerClose>
                   </CommandItem>
                   <CommandItem path="/product">
                     <ShoppingCartIcon className="mr-2 h-4 w-4" />
-                    <span>Product</span>
+                    <DrawerClose asChild>
+                      <span>Product</span>
+                    </DrawerClose>
                   </CommandItem>
                   <CommandItem path="/journey">
                     <GitMergeIcon className="mr-2 h-4 w-4" />
-                    <span>Journey</span>
+                    <DrawerClose asChild>
+                      <span>Journey</span>
+                    </DrawerClose>
                   </CommandItem>
                 </CommandGroup>
                 <CommandSeparator />
