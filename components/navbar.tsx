@@ -8,7 +8,7 @@ export default function Navbar() : JSX.Element {
   return (
     <nav className={clsx(
       "border-b-[1px] border-solid",
-      "p-4"
+      "p-2"
     )}>
       <DrawerMenu />
     </nav>

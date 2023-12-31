@@ -22,7 +22,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         {children}
-        <footer>
+        <footer className="p-4 border-t-[1px] border-solid">
           <p>&#169; Muhammad Supri</p>
         </footer>
       </body>
