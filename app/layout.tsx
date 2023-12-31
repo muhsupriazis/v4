@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="px-6 max-w-2xl mx-auto">
+        <header className="max-w-2xl mx-auto">
           <Navbar />
         </header>
-        <main className="px-6 max-w-2xl mx-auto">
+        <main className="max-w-2xl mx-auto">
           {children}
         </main>
         <footer className="px-6 max-w-2xl mx-auto">
