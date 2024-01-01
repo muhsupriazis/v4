@@ -28,7 +28,7 @@ const options = {
         )
       }
 
-      return <p className="text-sm md:text-base">{children}</p>
+      return <p className="text-sm md:text-base leading-6">{children}</p>
     },
 
     [INLINES.ENTRY_HYPERLINK]: node => {

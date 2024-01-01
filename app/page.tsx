@@ -6,7 +6,7 @@ export default async function Home() {
   const data =  profile[0].fields;
   const { description } = data;
   return (
-    <main className="p-4">
+    <main className="p-5">
       <div className="prose">
         <RichText content={description} />
       </div>
