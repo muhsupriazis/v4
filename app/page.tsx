@@ -1,13 +1,10 @@
-import { client } from "@/lib/contentful";
+import { fetchData } from "@/lib/api";
 import RichText from "./components/rich-text";
 
-async function getData() {
-  const res = await client.getEntries({ content_type: 'profile' })
-  return res.items[0].fields;
-}
-
 export default async function Home() {
-  const {description} = await getData();
+  const profile = await fetchData("profile");
+  const data =  profile[0].fields;
+  const { description } = data;
   return (
     <main className="p-4">
       <div className="prose">
