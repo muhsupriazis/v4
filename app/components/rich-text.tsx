@@ -6,7 +6,7 @@ const options = {
   renderMark: {
     [MARKS.CODE]: text => {
       return (
-        <pre>
+        <pre className='text-sm md:text-base'>
           <code>{text}</code>
         </pre>
       )
@@ -20,7 +20,7 @@ const options = {
         )
       ) {
         return (
-          <div>
+          <div className='text-sm md:text-base'>
             <pre>
               <code>{children}</code>
             </pre>
@@ -28,7 +28,7 @@ const options = {
         )
       }
 
-      return <p>{children}</p>
+      return <p className="text-sm md:text-base">{children}</p>
     },
 
     [INLINES.ENTRY_HYPERLINK]: node => {
@@ -44,7 +44,7 @@ const options = {
     [INLINES.HYPERLINK]: node => {
       const text = node.content.find(item => item.nodeType === 'text')?.value
       return (
-        <a href={node.data.uri} target='_blank' rel='noopener noreferrer'>
+        <a className='text-sm md:text-base' href={node.data.uri} target='_blank' rel='noopener noreferrer'>
           {text}
         </a>
       )
@@ -67,11 +67,11 @@ const options = {
     [BLOCKS.EMBEDDED_ASSET]: node => {
       return (
         <ContentfulImage
+          className="rounded md:rounded-lg"
           src={node.data.target.fields.file.url}
           height={node.data.target.fields.file.details.image.height}
           width={node.data.target.fields.file.details.image.width}
           alt={node.data.target.fields.title}
-          className='h-20 w-20'
         />
       )
     }
