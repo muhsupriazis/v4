@@ -48,7 +48,7 @@ export function DrawerMenu() {
           <DrawerHeader className="pt-5">
             <div className="flex space-x-4">
               <Avatar>
-                <AvatarImage />
+                <AvatarImage src="/profile.png" />
                 <AvatarFallback>MS</AvatarFallback>
               </Avatar>
               <div className="flex flex-col items-start">
@@ -80,7 +80,7 @@ export function DrawerMenu() {
                       <span>Reading</span>
                     </DrawerClose>
                   </CommandItem>
-                  <CommandItem path="/product">
+                  {/* <CommandItem path="/product">
                     <ShoppingCartIcon className="mr-2 h-4 w-4" />
                     <DrawerClose asChild>
                       <span>Product</span>
@@ -91,7 +91,7 @@ export function DrawerMenu() {
                     <DrawerClose asChild>
                       <span>Journey</span>
                     </DrawerClose>
-                  </CommandItem>
+                  </CommandItem> */}
                 </CommandGroup>
                 <CommandSeparator />
                 <CommandGroup heading="Online">
