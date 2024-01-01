@@ -32,3 +32,30 @@ export async function getWriting() {
   const message = 'Helo World';
   return {data, error, message};
 }
+
+export async function getReading() {
+  const readings  = await fetchData("reading");
+  const postOnYear:any = []
+  readings.forEach((post : any) => {
+    const createdAt = new Date(post.sys.createdAt);
+    const updatedAt = new Date(post.sys.updatedAt);
+    const year = createdAt.getFullYear();
+    const blog  = {year, ...post.fields, createdAt, updatedAt}
+    postOnYear.push(blog) 
+  });
+
+  const data:any = []
+  postOnYear.forEach(post => {
+    const year = post.year;
+    const index = data.findIndex((item: any) => item.year === year);
+    if(index === -1) {
+      data.push({year, books: [post]})
+    } else {
+      data[index].books.push(post)
+    }
+  });
+
+  const error = false;
+  const message = 'Helo World';
+  return {data, error, message};
+}
