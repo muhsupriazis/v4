@@ -5,6 +5,12 @@ export async function fetchData(content: string) {
   return res.items;
 }
 
+export async function getProfile() {
+  const profile = await fetchData("profile");
+  const data =  profile[0].fields;
+  return data;
+}
+
 export async function getWriting() {
   const writings  = await fetchData("writing");
   const postOnYear:any = []
@@ -27,10 +33,7 @@ export async function getWriting() {
       data[index].posts.push(post)
     }
   });
-
-  const error = false;
-  const message = 'Helo World';
-  return {data, error, message};
+  return data;
 }
 
 export async function getReading() {
@@ -54,10 +57,7 @@ export async function getReading() {
       data[index].books.push(post)
     }
   });
-
-  const error = false;
-  const message = 'Helo World';
-  return {data, error, message};
+  return data;
 }
 
 export async function getJourney() {
